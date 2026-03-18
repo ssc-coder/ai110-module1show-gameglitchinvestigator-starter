@@ -9,6 +9,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   (for example: "the hints were backwards").
 
 The first time I ran the app, it looked like a standard number guessing game, but it was basically impossible to win. The biggest issue was that the secret number would reset every single time I clicked the submit button, so the target was constantly moving. On top of that, the hints were completely backwards, telling me to guess higher when I was already way above the target number.
+
 ---
 
 ## 2. How did you use AI as a teammate?
@@ -18,6 +19,7 @@ The first time I ran the app, it looked like a standard number guessing game, bu
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
 I primarily used VS Code Copilot and its Agent Mode to help restructure the project. One correct suggestion it gave was how to move the core guessing logic into logic_utils.py and update the imports in app.py so everything still talked to each other. An incorrect suggestion happened when I asked it to fix the session state; it tried to use a variable that hadn't been initialized yet, which caused a crash that I had to fix by manually adding a check to see if the key existed in the session state.
+
 ---
 
 ## 3. Debugging and testing your fixes
@@ -28,6 +30,7 @@ I primarily used VS Code Copilot and its Agent Mode to help restructure the proj
 - Did AI help you design or understand any tests? How?
 
 I decided a bug was truly fixed when I could play through three full games in a row without the secret number changing or the hints lying to me. I used a manual test where I looked at the "Developer Debug Info" to see the secret number, then intentionally guessed one number above and one below to verify the logic. Copilot actually helped me write a pytest case that confirmed my check_guess function returned the right strings for correct, high, and low guesses.
+
 ---
 
 ## 4. What did you learn about Streamlit and state?
@@ -35,6 +38,7 @@ I decided a bug was truly fixed when I could play through three full games in a 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
 I would tell a friend that Streamlit is like a script that starts from the very beginning every time you click a button or change a setting. Because of this, normal variables just get wiped out and reset to their original values constantly. You have to use Session State as a sort of "memory" for the app so it can remember things like your score or the secret number between those reruns.
+
 ---
 
 ## 5. Looking ahead: your developer habits
